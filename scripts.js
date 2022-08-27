@@ -198,4 +198,156 @@ for(let counter = 0; counter < mySecondList.length; counter++){
 }
 
 // Métodos de array -> Repetição
+const names = ["Matheus", "João", "Pedro", "Maria"]
+
+names.forEach(function(name){
+    console.log(`O nome é: ${name}`)
+})
+
+const modifiedNames = names.map(function(name){
+    if(name === "Matheus"){
+        return (name = "Sr. Matheus")
+    }else{
+        return name
+    }
+})
+
+console.log(modifiedNames)
+
+const bigNumbers = [1, 2, 3, 4, 5, 10, 100].filter(function(number){
+    return number >= 5
+})
+
+console.log(bigNumbers)
+
+const sumAll = [10, 20, 30, 40, 50].reduce(function(total, number){
+    return total + number
+})
+
+console.log(sumAll)
+
+// Funções
+function minhaFuncao(){
+    console.log("Olá função")
+}
+
+minhaFuncao()
+
+function nomeCompleto(nome, sobrenome){
+    return `O nome completo é: ${nome} ${sobrenome}`
+}
+
+console.log(nomeCompleto('Jhonata', 'Rios'))
+
+const primeiroNome = "Jungle"
+const segundoNome = "Segundo"
+
+const meuNomeCompleto = nomeCompleto(primeiroNome, segundoNome)
+
+console.log(meuNomeCompleto)
+
+// Arrow functions
+const myArrowFunction = (a, b) => {
+    return a + b
+}
+
+console.log(myArrowFunction(2, 5))
+
+const mySimpleArrowFunction = (a, b) => a + b
+
+console.log(mySimpleArrowFunction(5, 5))
+
+// Classes
+class Product{
+
+    constructor(name, price){
+        this.name = name
+        this.price = price
+    }
+
+    productDetails(){
+        return `O nome do produto é ${this.name} e o preço é R$${this.price}`
+    }
+
+}
+
+const socks = new Product("Meia branca", 10.99)
+const shirt = new Product("Camisa preta", 22.99)
+
+console.log(socks.name)
+console.log(socks.price)
+
+console.log(shirt.name)
+console.log(shirt.price)
+
+console.log(socks.productDetails())
+console.log(shirt.productDetails())
+
+// Herança
+class SuperProduct extends Product{
+    constructor(name, price, size){
+        super(name, price)
+        this.size = size
+    }
+
+    showAdjective(adjective){
+        return `O ${this.name} é muito ${adjective}`
+    }
+
+    // Static
+    static sayHello(){
+        console.log("Hello")
+    }
+
+}
+
+const tenis = new SuperProduct("Tenis branco", 59.90, "42")
+
+console.log(tenis.name)
+console.log(tenis.price)
+console.log(tenis.size)
+
+console.log(tenis.showAdjective("Bom"))
+
+SuperProduct.sayHello()
+
+// DOM - Document Object Model
+// Seleção de elementos
+const title = document.getElementById("title")
+
+console.log(title)
+
+// Query Selector
+const sameTitle = document.querySelector("#title")
+
+console.log(sameTitle)
+
+const texts = document.querySelectorAll('.text')
+
+console.log(texts)
+console.log(texts[1])
+
+texts.forEach((text) => {
+    console.log(text.textContent.toUpperCase())
+})
+
+// Manipulação de elementos
+title.textContent = "Mudei o texto"
+
+texts[0].innerHTML = '<span>Alteramos o HTML deste elemento</span>'
+
+texts[1].style.backgroundColor = "red"
+
+texts[2].classList.add("my-class")
+
+texts[2].classList.remove("text")
+
+texts[3].remove()
+
+// Eventos
+const btn = document.querySelector("#btn")
+
+btn.addEventListener("click", function(){
+    texts[2].style.color = "blue"
+})
 
